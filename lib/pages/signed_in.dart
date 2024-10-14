@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class SignedIn extends StatelessWidget {
-  // Step 5
-  const SignedIn({
-    Key? key,
-  }) : super(key: key);
-  // Step 6
+  final String username;
+  const SignedIn({Key? key, required this.username}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,9 +15,11 @@ class SignedIn extends StatelessWidget {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: const [
-            // Step 9
-            Text("Welcome username"),
+          children: [
+            Text(
+              "Welcome, $username!",
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            ),
             Icon(
               Icons.check_circle,
               color: Colors.green,

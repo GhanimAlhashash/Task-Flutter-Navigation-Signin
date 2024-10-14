@@ -58,7 +58,16 @@ class HomeScreen extends StatelessWidget {
                   MaterialStateProperty.all<Color>(Colors.deepPurpleAccent),
             ),
             onPressed: () {
-              // Step 8
+              final username = usernameController.text;
+              if (passwordController.text == '12345') {
+                context.go('/signin?$username', extra: username);
+              } else {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(
+                    content: Text('Incorrect password. '),
+                  ),
+                );
+              }
             },
             child: const Padding(
               padding: EdgeInsets.all(8.0),
